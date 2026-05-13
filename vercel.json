@@ -1,0 +1,9 @@
+{
+  "builds": [{ "use": "@vercel/static" }],
+  "routes": [
+    { "src": "/(.*)", "dest": "/", "headers": {"cache-control": "public, max-age=3600"} }
+  ],
+  "headers": [
+    { "src": "/api/(.*)", "headers": { "Access-Control-Allow-Origin": "*", "Access-Control-Allow-Methods": "GET, POST, OPTIONS", "Access-Control-Allow-Headers": "Content-Type" } }
+  ]
+}

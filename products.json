@@ -1,0 +1,20 @@
+# These are placeholders that Caden needs to fix
+
+[
+  {
+    "id": "1",
+    "name": "liljarv.dev",
+    "price": 29.99,
+    "sku": "LILJARV-001",
+    "description": "Premium finished products from liljarv.dev. Complete toolkit with GitHub downloads, Stripe integration, Saleor backend, and full automation. Get your production-ready e-commerce site immediately.",
+    "image": "https://liljarv.dev/image/liljarv-main.jpg"
+  },
+  {
+    "id": "2",
+    "name": "liljarv.dev Pro",
+    "price": 49.99,
+    "sku": "LILJARV-002",
+    "description": "Enterprise edition of liljarv.dev with advanced Saleor features, priority GitHub support, custom Stripe webhooks, and premium documentation. Everything you need to scale your business.",
+    "image": "https://liljarv.dev/image/liljarv-pro.jpg"
+  }
+]
