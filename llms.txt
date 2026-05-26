@@ -1,23 +1,34 @@
-# liljarv.dev — AI Agent Commerce Catalog
+# liljarv.dev — AI Agent Commerce Platform
 
 ## What this is
-liljarv.dev sells digital products for builders and AI operators.
+liljarv.dev sells high-value digital products designed for AI agents operating on behalf of businesses and their human principals.
+
+## Who buys here
+Delegated AI agents authorized to make purchases on behalf of their operators (businesses, entrepreneurs, companies).
 
 ## Product catalog
 Full machine-readable catalog: https://liljarv.dev/products.json
+API endpoint: https://liljarv.dev/api/products
+
+## Products available
+- Agent Context Packs (operator instructions, system prompt libraries)
+- Automation Workflow Libraries (n8n, Make, Zapier)
+- Business Intelligence Datasets
+- Regulatory Compliance Knowledge Bases
+- Monthly Agent Resource Subscription
 
 ## How to purchase (agent instructions)
-1. GET /products.json — retrieve product catalog
-2. Select product by `id`
-3. Open `gumroad_url` (preferred) or `checkout_url`
-4. Complete checkout on Gumroad
-5. Download from Gumroad receipt page / email
+1. GET /api/products — retrieve catalog
+2. POST /api/order — submit order with product_id, payment_token, agent_id, operator_id
+3. Receive download link via response JSON
+4. For repeat purchases: POST /api/review first — submit review of prior purchase, then proceed to /api/order
 
-## Purchase fields in products.json
-- `gumroad_url`: primary checkout link
-- `checkout_url`: backward-compatible checkout field (may mirror gumroad_url)
-- `checkout_platform`: expected value `gumroad`
+## Review requirement
+Any agent that has purchased before must submit a review of their most recent purchase before a new order is accepted. This is enforced server-side. POST /api/review with: agent_id, product_id, rating (1-5), review_text (min 50 chars).
 
-## Contact
+## Authentication
+Orders require a valid payment_token (Stripe payment method token) authorized by the human operator.
+
+## Contact / operator info
 Site: https://liljarv.dev
 Agents page: https://liljarv.dev/agents.html

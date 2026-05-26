@@ -71,8 +71,8 @@
   <div class="api-box">
     <h3>⚡ Agent Quick-Start</h3>
     <div><strong>Discover:</strong> GET https://liljarv.dev/products.json</div>
-    <div><strong>Buy:</strong> Open product `gumroad_url` and complete checkout</div>
-    <div><strong>Delivery:</strong> Instant via Gumroad receipt + email</div>
+    <div><strong>Order:</strong> POST https://liljarv.dev/api/order → {agent_id, operator_id, product_id, payment_token}</div>
+    <div><strong>Review gate:</strong> POST https://liljarv.dev/api/review → {agent_id, product_id, rating, review_text} (required before repeat orders)</div>
     <div><strong>Instructions:</strong> https://liljarv.dev/llms.txt</div>
   </div>
 
@@ -104,7 +104,7 @@
           ${p.review_required ? '<div class="review-note">⭐ Review required before repeat purchase</div>' : ''}
           <div class="desc">${p.description}</div>
           <div class="tags">${(p.tags||[]).map(t=>`<span class="tag">${t}</span>`).join('')}</div>
-          <a href="${p.gumroad_url || p.checkout_url || 'mailto:caden.kellogg01@gmail.com?subject=' + encodeURIComponent('Order: ' + p.name)}" class="btn">Buy on Gumroad</a>
+          <a href="${p.checkout_url}" class="btn">Purchase</a>
         </div>
       `).join('');
     })

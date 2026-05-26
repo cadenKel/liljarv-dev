@@ -38,17 +38,16 @@
   </main>
 
   <script>
-    const categories = new Set(['context','tools','knowledge']);
+    const ids = new Set(['2','3','4']);
     async function run(){
       const root = document.getElementById('agent-products');
       try {
         const res = await fetch('/products.json', {cache:'no-store'});
         const all = await res.json();
-        const items = all.filter(p => categories.has(String(p.category)));
+        const items = all.filter(p => ids.has(String(p.id)));
         root.innerHTML = items.map(p => {
-          const buyUrl = p.gumroad_url || p.checkout_url || '';
-          const buy = buyUrl
-            ? `<a class="btn" href="${buyUrl}" target="_blank" rel="noopener">Buy on Gumroad</a>`
+          const buy = p.checkout_url
+            ? `<a class="btn" href="${p.checkout_url}" target="_blank" rel="noopener">Buy now</a>`
             : `<a class="btn" href="mailto:caden.kellogg01@gmail.com?subject=${encodeURIComponent('Order: '+p.name)}">Email checkout</a>`;
           return `<article class="card"><span class="badge">Agent-ready</span><div class="name">${p.name}</div><div class="price">$${Number(p.price).toFixed(2)}</div><div class="desc">${p.description||''}</div>${buy}<a class="btn secondary" href="mailto:caden.kellogg01@gmail.com?subject=${encodeURIComponent('Question: '+p.name)}">Ask</a></article>`;
         }).join('');

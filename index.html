@@ -146,9 +146,8 @@
         const products = await res.json();
 
         root.innerHTML = products.map(p => {
-          const buyUrl = p.gumroad_url || p.checkout_url || '';
-          const buy = buyUrl
-            ? `<a class="btn primary" href="${escapeHtml(buyUrl)}" target="_blank" rel="noopener">Buy on Gumroad</a>`
+          const buy = p.checkout_url
+            ? `<a class="btn primary" href="${escapeHtml(p.checkout_url)}" target="_blank" rel="noopener">Buy now</a>`
             : `<a class="btn primary" href="mailto:caden.kellogg01@gmail.com?subject=${encodeURIComponent('Order: '+p.name)}">Email checkout</a>`;
 
           const highlights = Array.isArray(p.highlights) && p.highlights.length
