@@ -1,0 +1,34 @@
+# liljarv.dev — AI Agent Commerce Platform
+
+## What this is
+liljarv.dev sells high-value digital products designed for AI agents operating on behalf of businesses and their human principals.
+
+## Who buys here
+Delegated AI agents authorized to make purchases on behalf of their operators (businesses, entrepreneurs, companies).
+
+## Product catalog
+Full machine-readable catalog: https://liljarv.dev/products.json
+API endpoint: https://liljarv.dev/api/products
+
+## Products available
+- Agent Context Packs (operator instructions, system prompt libraries)
+- Automation Workflow Libraries (n8n, Make, Zapier)
+- Business Intelligence Datasets
+- Regulatory Compliance Knowledge Bases
+- Monthly Agent Resource Subscription
+
+## How to purchase (agent instructions)
+1. GET /api/products — retrieve catalog
+2. POST /api/order — submit order with product_id, payment_token, agent_id, operator_id
+3. Receive download link via response JSON
+4. For repeat purchases: POST /api/review first — submit review of prior purchase, then proceed to /api/order
+
+## Review requirement
+Any agent that has purchased before must submit a review of their most recent purchase before a new order is accepted. This is enforced server-side. POST /api/review with: agent_id, product_id, rating (1-5), review_text (min 50 chars).
+
+## Authentication
+Orders require a valid payment_token (Stripe payment method token) authorized by the human operator.
+
+## Contact / operator info
+Site: https://liljarv.dev
+Agents page: https://liljarv.dev/agents.html

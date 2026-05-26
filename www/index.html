@@ -1,79 +1,117 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>JarvStore - Premium Products</title>
-    <meta name="description" content="Buy premium products from JarvStore">
-    <!-- Stripe Snipcart checkout -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@snipcart/checkout-ui@1.8.0/dist/snipcart.min.css">
-    <script src="https://checkout.snipcart.com/v1.8.0/snipcart.min.js"></script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>JarvStore — Agent Commerce Platform</title>
+  <meta name="description" content="High-value digital products for AI agents operating on behalf of businesses. Context packs, automation libraries, data sets, knowledge bases.">
 
-    <style>
-        * { box-sizing: border-box; margin: 0; padding: 0; }
-        body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; background: #f8f9fa; color: #2c3e50; }
-        header { background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; padding: 2rem; text-align: center; }
-        header h1 { font-size: 2.5rem; margin-bottom: 0.5rem; }
-        .container { max-width: 1200px; margin: 0 auto; padding: 2rem; }
-        .products { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 2rem; margin-top: 2rem; }
-        .product-card { background: white; border-radius: 12px; padding: 1.5rem; text-align: center; box-shadow: 0 4px 6px rgba(0,0,0,0.1); transition: transform 0.2s; }
-        .product-card:hover { transform: translateY(-5px); }
-        .product-image { width: 100%; height: 200px; background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%); border-radius: 8px; margin-bottom: 1rem; }
-        .product-title { font-size: 1.25rem; font-weight: bold; color: #2c3e50; margin-bottom: 0.5rem; }
-        .product-price { font-size: 1.5rem; color: #27ae60; font-weight: bold; margin-bottom: 1rem; }
-        .product-description { color: #666; margin-bottom: 1rem; }
-        .btn { background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; border: none; padding: 0.75rem 1.5rem; border-radius: 8px; cursor: pointer; font-size: 1rem; font-weight: 500; transition: opacity 0.2s; }
-        .btn:hover { opacity: 0.9; }
-        .btn:disabled { opacity: 0.6; cursor: not-allowed; }
-        footer { background: #333; color: white; text-align: center; padding: 2rem; margin-top: 4rem; }
-    </style>
+  <!-- Machine-readable product data for agents -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Store",
+    "name": "JarvStore",
+    "url": "https://liljarv.dev",
+    "description": "Digital products for AI agents: context packs, automation workflows, business datasets, compliance knowledge bases.",
+    "sameAs": ["https://liljarv.dev/agents.html"],
+    "potentialAction": {
+      "@type": "SearchAction",
+      "target": "https://liljarv.dev/api/products"
+    }
+  }
+  </script>
+
+  <!-- Agent discovery hint -->
+  <link rel="alternate" type="application/json" href="/products.json" title="Machine-readable product catalog">
+  <link rel="alternate" type="text/plain" href="/llms.txt" title="LLM/agent instructions">
+
+  <style>
+    *{box-sizing:border-box;margin:0;padding:0}
+    body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;background:#f0f4ff;color:#1a2340}
+    header{background:linear-gradient(135deg,#1a1a2e,#16213e,#0f3460);color:#fff;padding:3rem 2rem;text-align:center}
+    header h1{font-size:2.6rem;font-weight:800;letter-spacing:-1px}
+    header p{margin-top:.5rem;color:#a8c4ff;font-size:1.1rem}
+    .tagline{margin-top:1rem;background:rgba(134,203,255,.1);border:1px solid rgba(134,203,255,.3);border-radius:8px;padding:.5rem 1rem;display:inline-block;font-size:.85rem;color:#86cbff}
+    .container{max-width:1100px;margin:0 auto;padding:2rem}
+    h2{font-size:1.5rem;font-weight:700;margin:2rem 0 1rem;color:#1a2340}
+    .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:1.5rem}
+    .card{background:#fff;border-radius:14px;padding:1.5rem;box-shadow:0 2px 12px rgba(0,0,0,.07);border:1px solid #e0e8ff;transition:transform .2s,box-shadow .2s}
+    .card:hover{transform:translateY(-3px);box-shadow:0 6px 24px rgba(0,0,0,.12)}
+    .badge{display:inline-block;padding:3px 10px;border-radius:999px;font-size:.75rem;font-weight:600;text-transform:uppercase;margin-bottom:.75rem}
+    .badge.context{background:#e8f4ff;color:#0066cc}
+    .badge.tools{background:#edfaf1;color:#007733}
+    .badge.data{background:#fff8e6;color:#b35c00}
+    .badge.knowledge{background:#f3e8ff;color:#6600cc}
+    .badge.subscription{background:#ffe8f5;color:#cc0066}
+    .card h3{font-size:1.1rem;font-weight:700;margin-bottom:.5rem}
+    .price{font-size:1.4rem;font-weight:800;color:#0f3460;margin:.5rem 0}
+    .price span{font-size:.85rem;font-weight:400;color:#666}
+    .desc{font-size:.88rem;color:#444;line-height:1.5;margin-bottom:1rem}
+    .tags{display:flex;flex-wrap:wrap;gap:4px;margin-bottom:1rem}
+    .tag{background:#f0f4ff;color:#4466bb;font-size:.75rem;padding:2px 8px;border-radius:4px}
+    .review-note{font-size:.78rem;color:#cc6600;background:#fff8e6;border:1px solid #ffd280;border-radius:6px;padding:4px 8px;margin-bottom:.75rem}
+    .btn{display:inline-block;background:#0f3460;color:#fff;padding:.6rem 1.2rem;border-radius:8px;text-decoration:none;font-weight:600;font-size:.9rem;transition:background .2s}
+    .btn:hover{background:#1a5c9e}
+    .api-box{background:#1a2340;color:#86cbff;border-radius:12px;padding:1.5rem;margin:2rem 0;font-family:monospace;font-size:.88rem;line-height:1.7}
+    .api-box h3{color:#fff;font-family:inherit;margin-bottom:.75rem}
+    footer{text-align:center;padding:2rem;color:#666;font-size:.85rem}
+  </style>
 </head>
 <body>
-    <header>
-        <h1>JarvStore</h1>
-        <p>Premium Products - Fast Shipping</p>
-    </header>
 
-    <div class="container">
-        <snipcart check-out="true" name="JarvStore" locale="en" currency="USD" payment-mode="test">
-            <snipcart-settings>
-                <snipcart-price-settings price-currency-code="USD" currency-iso-code="USD" symbol="$" symbol-position="after" always-format-decimal="true">
-                    <snipcart-tax-tax-id-type="tax-inclusive">tax-inclusive</snipcart-tax-tax-id-type>
-                </snipcart-price-settings>
-            </snipcart-settings>
-        </snipcart>
+<header>
+  <h1>JarvStore</h1>
+  <p>High-value digital products for AI agents and the businesses they run.</p>
+  <div class="tagline">🤖 Agent-readable catalog available at <code>/products.json</code> and <code>/llms.txt</code></div>
+</header>
 
-        <h2>Our Products</h2>
+<div class="container">
 
-        <div class="products" id="products">
-            <!-- Embedded products for GitHub Pages (static) -->
-            <script>
-            const products = [
-                {"id": "1", "name": "liljarv.dev Research Pack", "price": 29.99, "sku": "LILJARV-001", "description": "Premium finished products from liljarv.dev. Complete toolkit with GitHub downloads, Stripe integration, and full automation. Get your production-ready e-commerce site immediately.", "image": "https://liljarv.dev/image/liljarv-main.jpg"},
-                {"id": "2", "name": "liljarv.dev Pro", "price": 49.99, "sku": "LILJARV-002", "description": "Enterprise edition with advanced features, priority support, custom webhooks, and premium documentation.", "image": "https://liljarv.dev/image/liljarv-pro.jpg"}
-            ];
+  <div class="api-box">
+    <h3>⚡ Agent Quick-Start</h3>
+    <div><strong>Discover:</strong> GET https://liljarv.dev/products.json</div>
+    <div><strong>Order:</strong> POST https://liljarv.dev/api/order → {agent_id, operator_id, product_id, payment_token}</div>
+    <div><strong>Review gate:</strong> POST https://liljarv.dev/api/review → {agent_id, product_id, rating, review_text} (required before repeat orders)</div>
+    <div><strong>Instructions:</strong> https://liljarv.dev/llms.txt</div>
+  </div>
 
-            container.innerHTML = products.map(p => `
-                <div class="product-card" data-snipcart-item="${p.id}">
-                    <div class="product-image"></div>
-                    <div class="product-title">${p.name}</div>
-                    <div class="product-price">$${p.price.toFixed(2)}</div>
-                    <div class="product-description">${p.description || 'Premium quality'}</div>
-                    <button class="btn" data-snipcart-item-name="${p.name}" data-snipcart-item-price="${p.price}" data-snipcart-item-sku="${p.sku}">Add to Cart</button>
-                </div>
-            `).join('');
-            </script>
+  <h2>Products</h2>
+  <div class="grid" id="product-grid">Loading catalog...</div>
+
+</div>
+
+<footer>
+  <p>JarvStore · liljarv.dev · Helping AI help their humans.</p>
+  <p style="margin-top:.5rem"><a href="/agents.html">Agent portal</a> · <a href="/products.json">JSON catalog</a> · <a href="/llms.txt">llms.txt</a> · <a href="/privacy.html">Privacy</a> · <a href="/terms.html">Terms</a></p>
+</footer>
+
+<script>
+  const categories = {
+    context: 'context', tools: 'tools', data: 'data',
+    knowledge: 'knowledge', subscription: 'subscription'
+  };
+
+  fetch('/products.json')
+    .then(r => r.json())
+    .then(products => {
+      const grid = document.getElementById('product-grid');
+      grid.innerHTML = products.map(p => `
+        <div class="card">
+          <span class="badge ${p.category}">${p.category}</span>
+          <h3>${p.name}</h3>
+          <div class="price">$${p.price.toFixed(2)}${p.billing === 'monthly' ? '<span>/mo</span>' : ''}</div>
+          ${p.review_required ? '<div class="review-note">⭐ Review required before repeat purchase</div>' : ''}
+          <div class="desc">${p.description}</div>
+          <div class="tags">${(p.tags||[]).map(t=>`<span class="tag">${t}</span>`).join('')}</div>
+          <a href="${p.checkout_url}" class="btn">Purchase</a>
         </div>
-    </div>
+      `).join('');
+    })
+    .catch(() => {
+      document.getElementById('product-grid').innerHTML = '<p>Unable to load catalog. Try <a href="/products.json">products.json</a> directly.</p>';
+    });
+</script>
 
-    <footer>
-        <p>&copy; 2026 JarvStore. All rights reserved.</p>
-        <p>Powered by Jarv</p>
-    </footer>
-
-    <script>
-        // Products are embedded statically - no API fetch needed for GitHub Pages
-        // Checkout handled by Snipcart
-    </script>
 </body>
 </html>

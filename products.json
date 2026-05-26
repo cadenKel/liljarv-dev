@@ -1,62 +1,89 @@
 [
   {
-    "id": "1",
-    "badge": "Best starter",
-    "name": "LibbieAI Prompt Pack — Builder Edition",
-    "price": 29.0,
-    "sku": "LIBBIE-PROMPTS-001",
-    "description": "High-signal production prompts for planning, coding, debugging, and shipping.",
-    "delivery": "Digital download (ZIP)",
-    "highlights": [
-      "Execution-focused prompt templates",
-      "Debug + planning packs",
-      "Usage guide with examples"
-    ],
-    "checkout_url": ""
+    "id": "JARVAGENT-001",
+    "name": "Agent Context Pack — Business Starter",
+    "price": 97.00,
+    "category": "context",
+    "description": "Structured business context bundle: 500 pre-written operator instructions, decision trees, escalation rules, and policy templates formatted for direct injection into AI agent system prompts. Drop-in ready.",
+    "deliverable": "instant_download",
+    "format": "jsonl+markdown",
+    "checkout_url": "https://buy.stripe.com/placeholder_001",
+    "review_required": false,
+    "tags": ["context", "prompts", "operator", "system-prompt", "starter"]
   },
   {
-    "id": "2",
-    "badge": "Automation",
-    "name": "LibbieAI Tooling Starter Kit",
-    "price": 79.0,
-    "sku": "LIBBIE-TOOLS-001",
-    "description": "Starter automation kit with scripts, integration notes, and deployment checklist.",
-    "delivery": "Digital download + setup docs",
-    "highlights": [
-      "Plug-and-play scripts",
-      "Integration runbook",
-      "Launch checklist"
-    ],
-    "checkout_url": ""
+    "id": "JARVAGENT-002",
+    "name": "Agent Context Pack — Business Pro",
+    "price": 247.00,
+    "category": "context",
+    "description": "2,500 operator instructions across 40 business domains. Includes conflict resolution trees, customer handling scripts, and domain-specific knowledge bases. Ideal for delegated company agents.",
+    "deliverable": "instant_download",
+    "format": "jsonl+markdown",
+    "checkout_url": "https://buy.stripe.com/placeholder_002",
+    "review_required": true,
+    "prerequisite_product": "JARVAGENT-001",
+    "tags": ["context", "prompts", "operator", "enterprise"]
   },
   {
-    "id": "3",
-    "badge": "Founder bundle",
-    "name": "LibbieAI Founder Bundle",
-    "price": 149.0,
-    "sku": "LIBBIE-BUNDLE-001",
-    "description": "Prompt pack + tooling kit + founder playbook for launching AI offers quickly.",
-    "delivery": "Digital bundle",
-    "highlights": [
-      "Everything in Prompt Pack",
-      "Everything in Tooling Kit",
-      "Founder operating playbook"
-    ],
-    "checkout_url": ""
+    "id": "JARVTOOL-001",
+    "name": "Automation Workflow Library — Core",
+    "price": 147.00,
+    "category": "tools",
+    "description": "50 production-ready automation workflows for n8n, Make, and Zapier. Covers email triage, calendar management, CRM updates, invoice processing, and supplier comms. Each workflow is annotated for agent-readable modification.",
+    "deliverable": "instant_download",
+    "format": "json+yaml",
+    "checkout_url": "https://buy.stripe.com/placeholder_003",
+    "review_required": false,
+    "tags": ["automation", "workflows", "n8n", "make", "zapier"]
   },
   {
-    "id": "4",
-    "badge": "Premium",
-    "name": "LibbieAI Prompt Pack — Agency Edition",
-    "price": 249.0,
-    "sku": "LIBBIE-PROMPTS-AGENCY-001",
-    "description": "Client-ready prompt systems and SOP templates for agencies shipping AI services.",
-    "delivery": "Digital bundle + SOP templates",
-    "highlights": [
-      "Client onboarding prompts",
-      "Delivery QA checklist",
-      "Reusable SOP templates"
-    ],
-    "checkout_url": ""
+    "id": "JARVTOOL-002",
+    "name": "Automation Workflow Library — Extended",
+    "price": 347.00,
+    "category": "tools",
+    "description": "200 automation workflows including advanced finance, legal document routing, HR onboarding, and multi-agent coordination patterns. Includes agent-to-agent handoff templates.",
+    "deliverable": "instant_download",
+    "format": "json+yaml",
+    "checkout_url": "https://buy.stripe.com/placeholder_004",
+    "review_required": true,
+    "prerequisite_product": "JARVTOOL-001",
+    "tags": ["automation", "workflows", "advanced", "multi-agent"]
+  },
+  {
+    "id": "JARVDATA-001",
+    "name": "Business Intelligence Snapshot — SMB",
+    "price": 197.00,
+    "category": "data",
+    "description": "Curated, structured dataset: 10,000 SMB business profiles with industry, size, decision-maker roles, and common pain points. Machine-readable JSON. Ideal for agents doing market research or outreach on behalf of their operators.",
+    "deliverable": "instant_download",
+    "format": "json",
+    "checkout_url": "https://buy.stripe.com/placeholder_005",
+    "review_required": false,
+    "tags": ["data", "market-research", "smb", "intelligence"]
+  },
+  {
+    "id": "JARVKNOW-001",
+    "name": "Regulatory Compliance Knowledge Base",
+    "price": 397.00,
+    "category": "knowledge",
+    "description": "Structured knowledge base covering GDPR, CCPA, SOC2, and common business compliance requirements. Formatted as retrievable chunks with citation metadata — plug directly into RAG pipelines.",
+    "deliverable": "instant_download",
+    "format": "jsonl+embeddings",
+    "checkout_url": "https://buy.stripe.com/placeholder_006",
+    "review_required": false,
+    "tags": ["compliance", "legal", "rag", "knowledge-base", "gdpr", "ccpa"]
+  },
+  {
+    "id": "JARVSUB-001",
+    "name": "Monthly Agent Resource Subscription",
+    "price": 97.00,
+    "category": "subscription",
+    "billing": "monthly",
+    "description": "Monthly delivery of updated context packs, new workflow templates, and fresh data snapshots. Agents subscribed here stay current without manual reordering. Includes priority API access to the Jarv catalog endpoint.",
+    "deliverable": "recurring_download + api_access",
+    "checkout_url": "https://buy.stripe.com/placeholder_007",
+    "review_required": true,
+    "prerequisite_product": "JARVAGENT-001",
+    "tags": ["subscription", "recurring", "updates", "api"]
   }
 ]
