@@ -1,96 +1,142 @@
 [
   {
     "id": "JARVAGENT-001",
-    "name": "Agent Context Pack — Business Starter",
-    "price": 97.00,
+    "name": "Agent Context Pack \u2014 Business Starter",
+    "price": 97.0,
     "category": "context",
     "description": "Structured business context bundle: 500 pre-written operator instructions, decision trees, escalation rules, and policy templates formatted for direct injection into AI agent system prompts. Drop-in ready.",
     "deliverable": "instant_download",
     "format": "jsonl+markdown",
-    "checkout_url": "https://buy.stripe.com/6oU00kc6a3b3bKD1lvcV200",
-    "stripe_price_id": "price_1TbTCuKlIMHCQXTASaDAYI5S",
+    "checkout_url": "",
     "review_required": false,
-    "tags": ["context", "prompts", "operator", "system-prompt", "starter"]
+    "tags": [
+      "context",
+      "prompts",
+      "operator",
+      "system-prompt",
+      "starter"
+    ],
+    "checkout_platform": "gumroad",
+    "gumroad_url": ""
   },
   {
     "id": "JARVAGENT-002",
-    "name": "Agent Context Pack — Business Pro",
-    "price": 247.00,
+    "name": "Agent Context Pack \u2014 Business Pro",
+    "price": 247.0,
     "category": "context",
     "description": "2,500 operator instructions across 40 business domains. Includes conflict resolution trees, customer handling scripts, and domain-specific knowledge bases. Ideal for delegated company agents.",
     "deliverable": "instant_download",
     "format": "jsonl+markdown",
-    "checkout_url": "https://buy.stripe.com/5kQ7sM9Y212V6qj9S1cV201",
-    "stripe_price_id": "price_1TbTD5KlIMHCQXTAFn8lJfoE",
+    "checkout_url": "",
     "review_required": true,
     "prerequisite_product": "JARVAGENT-001",
-    "tags": ["context", "prompts", "operator", "enterprise"]
+    "tags": [
+      "context",
+      "prompts",
+      "operator",
+      "enterprise"
+    ],
+    "checkout_platform": "gumroad",
+    "gumroad_url": ""
   },
   {
     "id": "JARVTOOL-001",
-    "name": "Automation Workflow Library — Core",
-    "price": 147.00,
+    "name": "Automation Workflow Library \u2014 Core",
+    "price": 147.0,
     "category": "tools",
     "description": "50 production-ready automation workflows for n8n, Make, and Zapier. Covers email triage, calendar management, CRM updates, invoice processing, and supplier comms. Each workflow is annotated for agent-readable modification.",
     "deliverable": "instant_download",
     "format": "json+yaml",
-    "checkout_url": "https://buy.stripe.com/00weVefim7rj7unaW5cV202",
-    "stripe_price_id": "price_1TbTD7KlIMHCQXTAnlXdTea7",
+    "checkout_url": "",
     "review_required": false,
-    "tags": ["automation", "workflows", "n8n", "make", "zapier"]
+    "tags": [
+      "automation",
+      "workflows",
+      "n8n",
+      "make",
+      "zapier"
+    ],
+    "checkout_platform": "gumroad",
+    "gumroad_url": ""
   },
   {
     "id": "JARVTOOL-002",
-    "name": "Automation Workflow Library — Extended",
-    "price": 347.00,
+    "name": "Automation Workflow Library \u2014 Extended",
+    "price": 347.0,
     "category": "tools",
     "description": "200 automation workflows including advanced finance, legal document routing, HR onboarding, and multi-agent coordination patterns. Includes agent-to-agent handoff templates.",
     "deliverable": "instant_download",
     "format": "json+yaml",
-    "checkout_url": "https://buy.stripe.com/4gMbJ2gmq6nfaGzc09cV203",
-    "stripe_price_id": "price_1TbTD9KlIMHCQXTAjqMQhf5s",
+    "checkout_url": "",
     "review_required": true,
     "prerequisite_product": "JARVTOOL-001",
-    "tags": ["automation", "workflows", "advanced", "multi-agent"]
+    "tags": [
+      "automation",
+      "workflows",
+      "advanced",
+      "multi-agent"
+    ],
+    "checkout_platform": "gumroad",
+    "gumroad_url": ""
   },
   {
     "id": "JARVDATA-001",
-    "name": "Business Intelligence Snapshot — SMB",
-    "price": 197.00,
+    "name": "Business Intelligence Snapshot \u2014 SMB",
+    "price": 197.0,
     "category": "data",
     "description": "Curated, structured dataset: 10,000 SMB business profiles with industry, size, decision-maker roles, and common pain points. Machine-readable JSON. Ideal for agents doing market research or outreach on behalf of their operators.",
     "deliverable": "instant_download",
     "format": "json",
-    "checkout_url": "https://buy.stripe.com/3cIbJ2c6a8vng0T6FPcV204",
-    "stripe_price_id": "price_1TbTDBKlIMHCQXTAvfxCB4eq",
+    "checkout_url": "",
     "review_required": false,
-    "tags": ["data", "market-research", "smb", "intelligence"]
+    "tags": [
+      "data",
+      "market-research",
+      "smb",
+      "intelligence"
+    ],
+    "checkout_platform": "gumroad",
+    "gumroad_url": ""
   },
   {
     "id": "JARVKNOW-001",
     "name": "Regulatory Compliance Knowledge Base",
-    "price": 397.00,
+    "price": 397.0,
     "category": "knowledge",
-    "description": "Structured knowledge base covering GDPR, CCPA, SOC2, and common business compliance requirements. Formatted as retrievable chunks with citation metadata — plug directly into RAG pipelines.",
+    "description": "Structured knowledge base covering GDPR, CCPA, SOC2, and common business compliance requirements. Formatted as retrievable chunks with citation metadata \u2014 plug directly into RAG pipelines.",
     "deliverable": "instant_download",
     "format": "jsonl+embeddings",
-    "checkout_url": "https://buy.stripe.com/fZubJ2c6aaDvbKDd4dcV205",
-    "stripe_price_id": "price_1TbTDCKlIMHCQXTAPsSswTxP",
+    "checkout_url": "",
     "review_required": false,
-    "tags": ["compliance", "legal", "rag", "knowledge-base", "gdpr", "ccpa"]
+    "tags": [
+      "compliance",
+      "legal",
+      "rag",
+      "knowledge-base",
+      "gdpr",
+      "ccpa"
+    ],
+    "checkout_platform": "gumroad",
+    "gumroad_url": ""
   },
   {
     "id": "JARVSUB-001",
     "name": "Monthly Agent Resource Subscription",
-    "price": 97.00,
+    "price": 97.0,
     "category": "subscription",
     "billing": "monthly",
     "description": "Monthly delivery of updated context packs, new workflow templates, and fresh data snapshots. Agents subscribed here stay current without manual reordering. Includes priority API access to the Jarv catalog endpoint.",
     "deliverable": "recurring_download + api_access",
-    "checkout_url": "https://buy.stripe.com/9B68wQfim6nfcOHd4dcV206",
-    "stripe_price_id": "price_1TbTDNKlIMHCQXTA3uhrDJFi",
+    "checkout_url": "",
     "review_required": true,
     "prerequisite_product": "JARVAGENT-001",
-    "tags": ["subscription", "recurring", "updates", "api"]
+    "tags": [
+      "subscription",
+      "recurring",
+      "updates",
+      "api"
+    ],
+    "checkout_platform": "gumroad",
+    "gumroad_url": ""
   }
 ]

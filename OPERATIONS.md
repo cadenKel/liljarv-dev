@@ -5,10 +5,10 @@
 - Publish branch: `gh-pages` (auto-deployed by GitHub Action)
 - Hosting: GitHub Pages + custom domain `liljarv.dev`
 - Storefront: static HTML + `products.json`
-- Checkout links: per-product `checkout_url` field in `products.json`
+- Checkout links: per-product `gumroad_url` (primary) and `checkout_url` (backward-compatible) fields in `products.json`
 
 ## Day-1 Launch Checklist
-1. Add real checkout URLs in `products.json` (`checkout_url`).
+1. Add real Gumroad links in `products.json` (`gumroad_url`) and mirror them into `checkout_url` for compatibility.
 2. In GitHub repo settings -> Pages, enforce HTTPS.
 3. Push to `main` and confirm action `Deploy static site to GitHub Pages` succeeds.
 4. Verify live pages:

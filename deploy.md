@@ -12,6 +12,6 @@
 - `products.json` - Product catalog
 - `server.js` - Node.js API (may need to use static build for GitHub Pages)
 - `www/index.html` - Store frontend
-- `.env` - Environment config (Stripe keys)
+- `.env` - Environment config (if needed)
 
 **Note:** GitHub Pages works best with static sites. If server.js is required, we may need to build a static version or use a different approach.

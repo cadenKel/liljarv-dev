@@ -20,7 +20,7 @@ echo "   - Branch: main"
 echo ""
 echo "✅ Store structure ready!"
 echo "   - Products upload via: POST /api/products"
-echo "   - Checkout enabled via Stripe"
+echo "   - Checkout enabled via Gumroad links"
 echo "   - Hosting: GitHub Pages / Vercel"
 
 cat deploy.md
