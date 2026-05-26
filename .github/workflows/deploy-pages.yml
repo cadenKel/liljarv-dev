@@ -19,6 +19,7 @@ jobs:
         run: |
           mkdir -p .publish
           cp index.html .publish/
+          cp agents.html .publish/
           cp products.json .publish/
           cp CNAME .publish/
           cp privacy.html .publish/
