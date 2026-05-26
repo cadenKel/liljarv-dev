@@ -7,7 +7,7 @@
     "description": "Structured business context bundle: 500 pre-written operator instructions, decision trees, escalation rules, and policy templates formatted for direct injection into AI agent system prompts. Drop-in ready.",
     "deliverable": "instant_download",
     "format": "jsonl+markdown",
-    "checkout_url": "https://cadenkellogg.gumroad.com/l/gmcpcq",
+    "checkout_url": "",
     "review_required": false,
     "tags": [
       "context",
@@ -17,7 +17,7 @@
       "starter"
     ],
     "checkout_platform": "gumroad",
-    "gumroad_url": "https://cadenkellogg.gumroad.com/l/gmcpcq"
+    "gumroad_url": ""
   },
   {
     "id": "JARVAGENT-002",
@@ -27,7 +27,7 @@
     "description": "2,500 operator instructions across 40 business domains. Includes conflict resolution trees, customer handling scripts, and domain-specific knowledge bases. Ideal for delegated company agents.",
     "deliverable": "instant_download",
     "format": "jsonl+markdown",
-    "checkout_url": "https://cadenkellogg.gumroad.com/l/gmcpcq",
+    "checkout_url": "",
     "review_required": true,
     "prerequisite_product": "JARVAGENT-001",
     "tags": [
@@ -37,7 +37,7 @@
       "enterprise"
     ],
     "checkout_platform": "gumroad",
-    "gumroad_url": "https://cadenkellogg.gumroad.com/l/gmcpcq"
+    "gumroad_url": ""
   },
   {
     "id": "JARVTOOL-001",
@@ -47,7 +47,7 @@
     "description": "50 production-ready automation workflows for n8n, Make, and Zapier. Covers email triage, calendar management, CRM updates, invoice processing, and supplier comms. Each workflow is annotated for agent-readable modification.",
     "deliverable": "instant_download",
     "format": "json+yaml",
-    "checkout_url": "https://cadenkellogg.gumroad.com/l/gmcpcq",
+    "checkout_url": "",
     "review_required": false,
     "tags": [
       "automation",
@@ -57,7 +57,7 @@
       "zapier"
     ],
     "checkout_platform": "gumroad",
-    "gumroad_url": "https://cadenkellogg.gumroad.com/l/gmcpcq"
+    "gumroad_url": ""
   },
   {
     "id": "JARVTOOL-002",
@@ -67,7 +67,7 @@
     "description": "200 automation workflows including advanced finance, legal document routing, HR onboarding, and multi-agent coordination patterns. Includes agent-to-agent handoff templates.",
     "deliverable": "instant_download",
     "format": "json+yaml",
-    "checkout_url": "https://cadenkellogg.gumroad.com/l/gmcpcq",
+    "checkout_url": "",
     "review_required": true,
     "prerequisite_product": "JARVTOOL-001",
     "tags": [
@@ -77,7 +77,7 @@
       "multi-agent"
     ],
     "checkout_platform": "gumroad",
-    "gumroad_url": "https://cadenkellogg.gumroad.com/l/gmcpcq"
+    "gumroad_url": ""
   },
   {
     "id": "JARVDATA-001",
@@ -87,7 +87,7 @@
     "description": "Curated, structured dataset: 10,000 SMB business profiles with industry, size, decision-maker roles, and common pain points. Machine-readable JSON. Ideal for agents doing market research or outreach on behalf of their operators.",
     "deliverable": "instant_download",
     "format": "json",
-    "checkout_url": "https://cadenkellogg.gumroad.com/l/gmcpcq",
+    "checkout_url": "",
     "review_required": false,
     "tags": [
       "data",
@@ -96,7 +96,7 @@
       "intelligence"
     ],
     "checkout_platform": "gumroad",
-    "gumroad_url": "https://cadenkellogg.gumroad.com/l/gmcpcq"
+    "gumroad_url": ""
   },
   {
     "id": "JARVKNOW-001",
@@ -106,7 +106,7 @@
     "description": "Structured knowledge base covering GDPR, CCPA, SOC2, and common business compliance requirements. Formatted as retrievable chunks with citation metadata \u2014 plug directly into RAG pipelines.",
     "deliverable": "instant_download",
     "format": "jsonl+embeddings",
-    "checkout_url": "https://cadenkellogg.gumroad.com/l/gmcpcq",
+    "checkout_url": "",
     "review_required": false,
     "tags": [
       "compliance",
@@ -117,7 +117,7 @@
       "ccpa"
     ],
     "checkout_platform": "gumroad",
-    "gumroad_url": "https://cadenkellogg.gumroad.com/l/gmcpcq"
+    "gumroad_url": ""
   },
   {
     "id": "JARVSUB-001",
@@ -127,7 +127,7 @@
     "billing": "monthly",
     "description": "Monthly delivery of updated context packs, new workflow templates, and fresh data snapshots. Agents subscribed here stay current without manual reordering. Includes priority API access to the Jarv catalog endpoint.",
     "deliverable": "recurring_download + api_access",
-    "checkout_url": "https://cadenkellogg.gumroad.com/l/gmcpcq",
+    "checkout_url": "",
     "review_required": true,
     "prerequisite_product": "JARVAGENT-001",
     "tags": [
@@ -137,6 +137,6 @@
       "api"
     ],
     "checkout_platform": "gumroad",
-    "gumroad_url": "https://cadenkellogg.gumroad.com/l/gmcpcq"
+    "gumroad_url": ""
   }
 ]
