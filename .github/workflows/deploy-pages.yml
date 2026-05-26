@@ -18,13 +18,16 @@ jobs:
       - name: Prepare publish directory
         run: |
           mkdir -p .publish
-          cp index.html .publish/
+          cp www/index.html .publish/
+          cp www/products.json .publish/
+          cp www/llms.txt .publish/
           cp agents.html .publish/
-          cp products.json .publish/
           cp CNAME .publish/
           cp privacy.html .publish/
           cp terms.html .publish/
           cp refunds.html .publish/
+          mkdir -p .publish/downloads
+          cp -r www/downloads/* .publish/downloads/ 2>/dev/null || true
           if [ -f _redirects ]; then cp _redirects .publish/; fi
 
       - name: Deploy to gh-pages

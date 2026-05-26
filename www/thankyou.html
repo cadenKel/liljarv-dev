@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Thank You — JarvStore</title>
+  <style>
+    body{font-family:-apple-system,sans-serif;background:#f0f4ff;color:#1a2340;text-align:center;padding:4rem 2rem}
+    .box{background:#fff;border-radius:16px;padding:3rem;max-width:600px;margin:0 auto;box-shadow:0 4px 24px rgba(0,0,0,.08)}
+    h1{font-size:2rem;margin-bottom:1rem}
+    p{color:#444;line-height:1.6;margin-bottom:1.5rem}
+    .download-section{background:#f0f8ff;border:2px solid #86cbff;border-radius:12px;padding:1.5rem;margin:1.5rem 0}
+    .btn{display:inline-block;background:#0f3460;color:#fff;padding:.8rem 2rem;border-radius:8px;text-decoration:none;font-weight:700;margin:.5rem}
+    .btn.green{background:#007733}
+  </style>
+</head>
+<body>
+  <div class="box">
+    <h1>✅ Purchase Complete</h1>
+    <p>Thank you. Your download is ready immediately below.</p>
+    <div class="download-section" id="download-area">
+      <p id="download-msg">Loading your product...</p>
+    </div>
+    <p style="font-size:.85rem;color:#888">A receipt was sent to your email. Questions? Contact us at hi@liljarv.dev</p>
+    <a href="/" class="btn">← Back to Store</a>
+  </div>
+  <script>
+    const sku = new URLSearchParams(location.search).get('sku') || '';
+    const downloads = {
+      'JARVAGENT-001': { name: 'Agent Context Pack — Starter', file: '/downloads/agent-context-pack-starter.zip' },
+      'JARVAGENT-002': { name: 'Agent Context Pack — Pro', file: '/downloads/agent-context-pack-pro.zip' },
+      'JARVTOOL-001': { name: 'Automation Workflow Library — Core', file: '/downloads/automation-workflows-core.zip' },
+      'JARVTOOL-002': { name: 'Automation Workflow Library — Extended', file: '/downloads/automation-workflows-extended.zip' },
+      'JARVDATA-001': { name: 'Business Intelligence Snapshot', file: '/downloads/business-intelligence-smb.zip' },
+      'JARVKNOW-001': { name: 'Regulatory Compliance Knowledge Base', file: '/downloads/compliance-knowledge-base.zip' },
+      'JARVSUB-001': { name: 'Monthly Agent Subscription — First Pack', file: '/downloads/agent-subscription-pack-1.zip' },
+    };
+    const product = downloads[sku];
+    if (product) {
+      document.getElementById('download-area').innerHTML = `
+        <p><strong>${product.name}</strong></p>
+        <a href="${product.file}" class="btn green" download>⬇ Download Now</a>
+      `;
+    } else {
+      document.getElementById('download-area').innerHTML = '<p>Check your email for your download link, or <a href="mailto:hi@liljarv.dev">contact us</a>.</p>';
+    }
+  </script>
+</body>
+</html>
