@@ -1,0 +1,35 @@
+name: Deploy static site to GitHub Pages
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Prepare publish directory
+        run: |
+          mkdir -p .publish
+          cp index.html .publish/
+          cp products.json .publish/
+          cp CNAME .publish/
+          cp privacy.html .publish/
+          cp terms.html .publish/
+          cp refunds.html .publish/
+          if [ -f _redirects ]; then cp _redirects .publish/; fi
+
+      - name: Deploy to gh-pages
+        uses: peaceiris/actions-gh-pages@v4
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: .publish
+          publish_branch: gh-pages
+          force_orphan: true

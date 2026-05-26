@@ -1,20 +1,29 @@
-# These are placeholders that Caden needs to fix
-
 [
   {
     "id": "1",
-    "name": "liljarv.dev",
-    "price": 29.99,
-    "sku": "LILJARV-001",
-    "description": "Premium finished products from liljarv.dev. Complete toolkit with GitHub downloads, Stripe integration, Saleor backend, and full automation. Get your production-ready e-commerce site immediately.",
-    "image": "https://liljarv.dev/image/liljarv-main.jpg"
+    "name": "LibbieAI Prompt Pack — Builder Edition",
+    "price": 29.0,
+    "sku": "LIBBIE-PROMPTS-001",
+    "description": "High-signal production prompts for planning, coding, debugging, and shipping. Includes practical templates and usage notes.",
+    "delivery": "Digital download (ZIP)",
+    "checkout_url": ""
   },
   {
     "id": "2",
-    "name": "liljarv.dev Pro",
-    "price": 49.99,
-    "sku": "LILJARV-002",
-    "description": "Enterprise edition of liljarv.dev with advanced Saleor features, priority GitHub support, custom Stripe webhooks, and premium documentation. Everything you need to scale your business.",
-    "image": "https://liljarv.dev/image/liljarv-pro.jpg"
+    "name": "LibbieAI Tooling Starter Kit",
+    "price": 79.0,
+    "sku": "LIBBIE-TOOLS-001",
+    "description": "Starter automation kit with scripts, integration notes, and deployment checklist for AI-assisted workflows.",
+    "delivery": "Digital download + setup docs",
+    "checkout_url": ""
+  },
+  {
+    "id": "3",
+    "name": "LibbieAI Founder Bundle",
+    "price": 149.0,
+    "sku": "LIBBIE-BUNDLE-001",
+    "description": "Prompt pack + tooling kit + founder playbook for launching AI products fast with clear operational guardrails.",
+    "delivery": "Digital bundle",
+    "checkout_url": ""
   }
 ]

@@ -1,85 +1,81 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>JarvStore - Premium Products</title>
-    <meta name="description" content="Buy premium products from JarvStore">
-    <!-- Stripe Snipcart checkout -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@snipcart/checkout-ui@1.8.0/dist/snipcart.min.css">
-    <script src="https://checkout.snipcart.com/v1.8.0/snipcart.min.js"></script>
-    
-    <style>
-        * { box-sizing: border-box; margin: 0; padding: 0; }
-        body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; background: #f8f9fa; color: #2c3e50; }
-        header { background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; padding: 2rem; text-align: center; }
-        header h1 { font-size: 2.5rem; margin-bottom: 0.5rem; }
-        .container { max-width: 1200px; margin: 0 auto; padding: 2rem; }
-        .products { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 2rem; margin-top: 2rem; }
-        .product-card { background: white; border-radius: 12px; padding: 1.5rem; text-align: center; box-shadow: 0 4px 6px rgba(0,0,0,0.1); transition: transform 0.2s; }
-        .product-card:hover { transform: translateY(-5px); }
-        .product-image { width: 100%; height: 200px; background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%); border-radius: 8px; margin-bottom: 1rem; }
-        .product-title { font-size: 1.25rem; font-weight: bold; color: #2c3e50; margin-bottom: 0.5rem; }
-        .product-price { font-size: 1.5rem; color: #27ae60; font-weight: bold; margin-bottom: 1rem; }
-        .product-description { color: #666; margin-bottom: 1rem; }
-        .btn { background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; border: none; padding: 0.75rem 1.5rem; border-radius: 8px; cursor: pointer; font-size: 1rem; font-weight: 500; transition: opacity 0.2s; }
-        .btn:hover { opacity: 0.9; }
-        .btn:disabled { opacity: 0.6; cursor: not-allowed; }
-        footer { background: #333; color: white; text-align: center; padding: 2rem; margin-top: 4rem; }
-    </style>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>LibbieAI — Prompts & AI Tooling</title>
+  <meta name="description" content="LibbieAI prompt packs and AI tooling. Ethical automation products that save time and ship faster." />
+  <style>
+    :root { --bg:#0b1020; --card:#121a30; --text:#e8ecff; --muted:#9aa6d1; --acc:#6ea8fe; --ok:#56d364; }
+    * { box-sizing:border-box; }
+    body { margin:0; font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, sans-serif; background:linear-gradient(180deg,#0b1020,#0a0f1b); color:var(--text); }
+    .wrap { max-width:1080px; margin:0 auto; padding:24px; }
+    .hero { padding:28px 0 8px; }
+    h1 { margin:0; font-size:40px; line-height:1.1; }
+    .sub { color:var(--muted); margin-top:10px; max-width:760px; }
+    .pill { display:inline-block; margin-top:14px; padding:6px 10px; border:1px solid #2a3962; border-radius:999px; color:#bdd4ff; font-size:12px; }
+    h2 { margin:28px 0 12px; font-size:22px; }
+    .grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(260px,1fr)); gap:14px; }
+    .card { background:var(--card); border:1px solid #223159; border-radius:14px; padding:16px; }
+    .name { font-size:18px; font-weight:700; }
+    .price { margin-top:6px; color:var(--ok); font-weight:700; }
+    .desc { margin:10px 0; color:var(--muted); min-height:72px; }
+    .meta { font-size:12px; color:#9fb0e6; margin-bottom:12px; }
+    .btns { display:flex; gap:8px; flex-wrap:wrap; }
+    .btn { appearance:none; border:0; border-radius:10px; padding:10px 12px; background:var(--acc); color:#041127; font-weight:700; text-decoration:none; }
+    .btn.secondary { background:transparent; border:1px solid #3d548f; color:#bdd4ff; }
+    .note { margin-top:20px; color:#a8b7e8; font-size:14px; }
+    footer { margin:34px 0 20px; color:#7d89b6; font-size:13px; }
+    footer a { color:#a9c4ff; }
+  </style>
 </head>
 <body>
-    <header>
-        <h1>JarvStore</h1>
-        <p>Premium Products - Fast Shipping</p>
-    </header>
-    
-    <div class="container">
-        <snipcart check-out="true" name="JarvStore" locale="en" currency="USD" payment-mode="live">
-            <snipcart-settings>
-                <snipcart-price-settings price-currency-code="USD" currency-iso-code="USD" symbol="$" symbol-position="after" always-format-decimal="true">
-                    <snipcart-tax-tax-id-type="tax-inclusive">tax-inclusive</snipcart-tax-tax-id-type>
-                </snipcart-price-settings>
-            </snipcart-settings>
-        </snipcart>
-        
-        <h2>Our Products</h2>
-        
-        <div class="products" id="products">
-            <!-- Products loaded via API -->
-            <p>Products coming soon...</p>
-        </div>
-    </div>
-    
+  <main class="wrap">
+    <section class="hero">
+      <h1>LibbieAI Store</h1>
+      <p class="sub">Prompt packs and practical AI tooling designed for builders. Built to be ethical, useful, and immediately deployable.</p>
+      <span class="pill">liljarv.dev • digital delivery</span>
+    </section>
+
+    <section>
+      <h2>Products</h2>
+      <div id="products" class="grid"></div>
+      <p class="note" id="checkout-note">Checkout links are configured per product. If checkout is not yet live for a product, use <a href="mailto:caden.kellogg01@gmail.com">email checkout</a> and we’ll fulfill manually within 24h.</p>
+    </section>
+
     <footer>
-        <p>&copy; 2026 JarvStore. All rights reserved.</p>
-        <p>Powered by Jarv</p>
+      © 2026 LibbieAI · <a href="/privacy.html">Privacy</a> · <a href="/terms.html">Terms</a> · <a href="/refunds.html">Refunds</a>
     </footer>
-    
-    <script>
-        // Fetch products from API
-        fetch('/api/products')
-            .then(r => r.json())
-            .then(products => {
-                const container = document.getElementById('products');
-                if (products.length === 0) {
-                    container.innerHTML = '<p>No products available yet.</p>';
-                    return;
-                }
-                container.innerHTML = products.map(p => `
-                    <div class="product-card" data-snipcart-item="${p.id}">
-                        <div class="product-image"></div>
-                        <div class="product-title">${p.name}</div>
-                        <div class="product-price">$${p.price.toFixed(2)}</div>
-                        <div class="product-description">${p.description || 'Premium quality'}</div>
-                        <button class="btn" data-snipcart-item-name="${p.name}" data-snipcart-item-price="${p.price}" data-snipcart-item-sku="${p.sku}">Add to Cart</button>
-                    </div>
-                `).join('');
-            })
-            .catch(err => {
-                console.error('Error:', err);
-                document.getElementById('products').innerHTML = '<p>Products temporarily unavailable. Coming soon!</p>';
-            });
-    </script>
+  </main>
+
+  <script>
+    async function loadProducts(){
+      const root = document.getElementById('products');
+      try {
+        const res = await fetch('/products.json', { cache: 'no-store' });
+        const products = await res.json();
+        root.innerHTML = products.map(p => {
+          const buy = p.checkout_url
+            ? `<a class="btn" href="${p.checkout_url}" target="_blank" rel="noopener">Buy now</a>`
+            : `<a class="btn" href="mailto:caden.kellogg01@gmail.com?subject=${encodeURIComponent('Order: '+p.name)}">Email checkout</a>`;
+          return `
+            <article class="card">
+              <div class="name">${p.name}</div>
+              <div class="price">$${Number(p.price).toFixed(2)}</div>
+              <div class="desc">${p.description || ''}</div>
+              <div class="meta">SKU: ${p.sku || ''} · Delivery: ${p.delivery || 'Digital download'}</div>
+              <div class="btns">
+                ${buy}
+                <a class="btn secondary" href="mailto:caden.kellogg01@gmail.com?subject=${encodeURIComponent('Question: '+p.name)}">Ask a question</a>
+              </div>
+            </article>
+          `;
+        }).join('');
+      } catch (e) {
+        root.innerHTML = '<article class="card">Products are being updated. Please check back shortly.</article>';
+      }
+    }
+    loadProducts();
+  </script>
 </body>
 </html>
