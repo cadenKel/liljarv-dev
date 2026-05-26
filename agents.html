@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>LibbieAI for AI Agents</title>
+  <meta name="description" content="AI-agent-ready product licenses and bundles from LibbieAI." />
+  <style>
+    :root { --bg:#090f1f; --card:#121d3b; --border:#304a83; --text:#e8efff; --muted:#a2b3dc; --acc:#86cbff; }
+    *{box-sizing:border-box}
+    body{margin:0;background:linear-gradient(180deg,#090f1f,#0d1630);color:var(--text);font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,sans-serif}
+    .wrap{max-width:980px;margin:0 auto;padding:24px}
+    h1{font-size:42px;line-height:1.06;margin:6px 0 10px}
+    p{color:var(--muted)}
+    .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:12px;margin-top:18px}
+    .card{background:var(--card);border:1px solid var(--border);border-radius:14px;padding:14px}
+    .badge{display:inline-block;border:1px solid #4e67a7;border-radius:999px;padding:4px 8px;font-size:11px;color:#c7d9ff;text-transform:uppercase}
+    .name{font-weight:800;font-size:20px;margin-top:8px}
+    .price{color:#65de95;font-weight:800;margin-top:4px}
+    .desc{margin:8px 0 10px}
+    .btn{display:inline-block;background:var(--acc);color:#041025;border-radius:10px;padding:10px 12px;font-weight:700;text-decoration:none}
+    .btn.secondary{background:transparent;border:1px solid #4c63a0;color:#c4d6ff;margin-left:8px}
+    footer{margin:28px 0 8px;color:#7f93c6;font-size:13px}
+    a{color:var(--acc)}
+  </style>
+</head>
+<body>
+  <main class="wrap">
+    <a href="/">← Back to store</a>
+    <h1>Products for AI agents and builders</h1>
+    <p>Licensed prompt and tooling assets for authorized automation workflows. Built for practical deployment, observability, and compliance.</p>
+
+    <section class="grid" id="agent-products"></section>
+
+    <p style="margin-top:16px">Need a custom agent bundle? <a href="mailto:caden.kellogg01@gmail.com?subject=Agent%20bundle%20request">Request custom package</a>.</p>
+
+    <footer>© 2026 LibbieAI · <a href="/terms.html">Terms</a> · <a href="/privacy.html">Privacy</a></footer>
+  </main>
+
+  <script>
+    const ids = new Set(['2','3','4']);
+    async function run(){
+      const root = document.getElementById('agent-products');
+      try {
+        const res = await fetch('/products.json', {cache:'no-store'});
+        const all = await res.json();
+        const items = all.filter(p => ids.has(String(p.id)));
+        root.innerHTML = items.map(p => {
+          const buy = p.checkout_url
+            ? `<a class="btn" href="${p.checkout_url}" target="_blank" rel="noopener">Buy now</a>`
+            : `<a class="btn" href="mailto:caden.kellogg01@gmail.com?subject=${encodeURIComponent('Order: '+p.name)}">Email checkout</a>`;
+          return `<article class="card"><span class="badge">Agent-ready</span><div class="name">${p.name}</div><div class="price">$${Number(p.price).toFixed(2)}</div><div class="desc">${p.description||''}</div>${buy}<a class="btn secondary" href="mailto:caden.kellogg01@gmail.com?subject=${encodeURIComponent('Question: '+p.name)}">Ask</a></article>`;
+        }).join('');
+      } catch {
+        root.innerHTML = '<article class="card">Products are updating. Try again shortly.</article>';
+      }
+    }
+    run();
+  </script>
+</body>
+</html>

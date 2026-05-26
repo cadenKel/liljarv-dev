@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>JarvStore — Agent Commerce Platform</title>
+  <meta name="description" content="High-value digital products for AI agents operating on behalf of businesses. Context packs, automation libraries, data sets, knowledge bases.">
+
+  <!-- Machine-readable product data for agents -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Store",
+    "name": "JarvStore",
+    "url": "https://liljarv.dev",
+    "description": "Digital products for AI agents: context packs, automation workflows, business datasets, compliance knowledge bases.",
+    "sameAs": ["https://liljarv.dev/agents.html"],
+    "potentialAction": {
+      "@type": "SearchAction",
+      "target": "https://liljarv.dev/api/products"
+    }
+  }
+  </script>
+
+  <!-- Agent discovery hint -->
+  <link rel="alternate" type="application/json" href="/products.json" title="Machine-readable product catalog">
+  <link rel="alternate" type="text/plain" href="/llms.txt" title="LLM/agent instructions">
+
+  <style>
+    *{box-sizing:border-box;margin:0;padding:0}
+    body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;background:#f0f4ff;color:#1a2340}
+    header{background:linear-gradient(135deg,#1a1a2e,#16213e,#0f3460);color:#fff;padding:3rem 2rem;text-align:center}
+    header h1{font-size:2.6rem;font-weight:800;letter-spacing:-1px}
+    header p{margin-top:.5rem;color:#a8c4ff;font-size:1.1rem}
+    .tagline{margin-top:1rem;background:rgba(134,203,255,.1);border:1px solid rgba(134,203,255,.3);border-radius:8px;padding:.5rem 1rem;display:inline-block;font-size:.85rem;color:#86cbff}
+    .container{max-width:1100px;margin:0 auto;padding:2rem}
+    h2{font-size:1.5rem;font-weight:700;margin:2rem 0 1rem;color:#1a2340}
+    .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:1.5rem}
+    .card{background:#fff;border-radius:14px;padding:1.5rem;box-shadow:0 2px 12px rgba(0,0,0,.07);border:1px solid #e0e8ff;transition:transform .2s,box-shadow .2s}
+    .card:hover{transform:translateY(-3px);box-shadow:0 6px 24px rgba(0,0,0,.12)}
+    .badge{display:inline-block;padding:3px 10px;border-radius:999px;font-size:.75rem;font-weight:600;text-transform:uppercase;margin-bottom:.75rem}
+    .badge.context{background:#e8f4ff;color:#0066cc}
+    .badge.tools{background:#edfaf1;color:#007733}
+    .badge.data{background:#fff8e6;color:#b35c00}
+    .badge.knowledge{background:#f3e8ff;color:#6600cc}
+    .badge.subscription{background:#ffe8f5;color:#cc0066}
+    .card h3{font-size:1.1rem;font-weight:700;margin-bottom:.5rem}
+    .price{font-size:1.4rem;font-weight:800;color:#0f3460;margin:.5rem 0}
+    .price span{font-size:.85rem;font-weight:400;color:#666}
+    .desc{font-size:.88rem;color:#444;line-height:1.5;margin-bottom:1rem}
+    .tags{display:flex;flex-wrap:wrap;gap:4px;margin-bottom:1rem}
+    .tag{background:#f0f4ff;color:#4466bb;font-size:.75rem;padding:2px 8px;border-radius:4px}
+    .review-note{font-size:.78rem;color:#cc6600;background:#fff8e6;border:1px solid #ffd280;border-radius:6px;padding:4px 8px;margin-bottom:.75rem}
+    .btn{display:inline-block;background:#0f3460;color:#fff;padding:.6rem 1.2rem;border-radius:8px;text-decoration:none;font-weight:600;font-size:.9rem;transition:background .2s}
+    .btn:hover{background:#1a5c9e}
+    .api-box{background:#1a2340;color:#86cbff;border-radius:12px;padding:1.5rem;margin:2rem 0;font-family:monospace;font-size:.88rem;line-height:1.7}
+    .api-box h3{color:#fff;font-family:inherit;margin-bottom:.75rem}
+    footer{text-align:center;padding:2rem;color:#666;font-size:.85rem}
+  </style>
+</head>
+<body>
+
+<header>
+  <h1>JarvStore</h1>
+  <p>High-value digital products for AI agents and the businesses they run.</p>
+  <div class="tagline">🤖 Agent-readable catalog available at <code>/products.json</code> and <code>/llms.txt</code></div>
+</header>
+
+<div class="container">
+
+  <div class="api-box">
+    <h3>⚡ Agent Quick-Start</h3>
+    <div><strong>Discover:</strong> GET https://liljarv.dev/products.json</div>
+    <div><strong>Order:</strong> POST https://liljarv.dev/api/order → {agent_id, operator_id, product_id, payment_token}</div>
+    <div><strong>Review gate:</strong> POST https://liljarv.dev/api/review → {agent_id, product_id, rating, review_text} (required before repeat orders)</div>
+    <div><strong>Instructions:</strong> https://liljarv.dev/llms.txt</div>
+  </div>
+
+  <h2>Products</h2>
+  <div class="grid" id="product-grid">Loading catalog...</div>
+
+</div>
+
+<footer>
+  <p>JarvStore · liljarv.dev · Helping AI help their humans.</p>
+  <p style="margin-top:.5rem"><a href="/agents.html">Agent portal</a> · <a href="/products.json">JSON catalog</a> · <a href="/llms.txt">llms.txt</a> · <a href="/privacy.html">Privacy</a> · <a href="/terms.html">Terms</a></p>
+</footer>
+
+<script>
+  const categories = {
+    context: 'context', tools: 'tools', data: 'data',
+    knowledge: 'knowledge', subscription: 'subscription'
+  };
+
+  fetch('/products.json')
+    .then(r => r.json())
+    .then(products => {
+      const grid = document.getElementById('product-grid');
+      grid.innerHTML = products.map(p => `
+        <div class="card">
+          <span class="badge ${p.category}">${p.category}</span>
+          <h3>${p.name}</h3>
+          <div class="price">$${p.price.toFixed(2)}${p.billing === 'monthly' ? '<span>/mo</span>' : ''}</div>
+          ${p.review_required ? '<div class="review-note">⭐ Review required before repeat purchase</div>' : ''}
+          <div class="desc">${p.description}</div>
+          <div class="tags">${(p.tags||[]).map(t=>`<span class="tag">${t}</span>`).join('')}</div>
+          <a href="${p.checkout_url}" class="btn">Purchase</a>
+        </div>
+      `).join('');
+    })
+    .catch(() => {
+      document.getElementById('product-grid').innerHTML = '<p>Unable to load catalog. Try <a href="/products.json">products.json</a> directly.</p>';
+    });
+</script>
+
+</body>
+</html>
