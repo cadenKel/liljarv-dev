@@ -1,9 +1,18 @@
 {
-  "builds": [{ "use": "@vercel/static" }],
-  "routes": [
-    { "src": "/(.*)", "dest": "/", "headers": {"cache-control": "public, max-age=3600"} }
+  "version": 2,
+  "env": {
+    "STRIPE_SECRET_KEY": "@stripe_secret_key"
+  },
+  "builds": [
+    { "src": "www/api/*.js", "use": "@vercel/node" },
+    { "src": "www/**", "use": "@vercel/static" }
   ],
-  "headers": [
-    { "src": "/api/(.*)", "headers": { "Access-Control-Allow-Origin": "*", "Access-Control-Allow-Methods": "GET, POST, OPTIONS", "Access-Control-Allow-Headers": "Content-Type" } }
+  "routes": [
+    { "src": "/api/products", "dest": "/www/api/products.js" },
+    { "src": "/api/order", "dest": "/www/api/order.js" },
+    { "src": "/api/review", "dest": "/www/api/review.js" },
+    { "src": "/products.json", "dest": "/www/products.json" },
+    { "src": "/llms.txt", "dest": "/www/llms.txt" },
+    { "src": "/(.*)", "dest": "/www/$1" }
   ]
 }
