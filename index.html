@@ -3,44 +3,129 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>LibbieAI — Prompts & AI Tooling</title>
-  <meta name="description" content="LibbieAI prompt packs and AI tooling. Ethical automation products that save time and ship faster." />
+  <title>LibbieAI — Prompt Packs & AI Tooling</title>
+  <meta name="description" content="Ship faster with LibbieAI prompt packs and AI tooling bundles. Practical, ethical, and production-minded." />
+  <meta property="og:title" content="LibbieAI Store" />
+  <meta property="og:description" content="Prompt packs and AI tooling bundles for builders." />
+  <meta property="og:type" content="website" />
   <style>
-    :root { --bg:#0b1020; --card:#121a30; --text:#e8ecff; --muted:#9aa6d1; --acc:#6ea8fe; --ok:#56d364; }
-    * { box-sizing:border-box; }
-    body { margin:0; font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, sans-serif; background:linear-gradient(180deg,#0b1020,#0a0f1b); color:var(--text); }
-    .wrap { max-width:1080px; margin:0 auto; padding:24px; }
-    .hero { padding:28px 0 8px; }
-    h1 { margin:0; font-size:40px; line-height:1.1; }
-    .sub { color:var(--muted); margin-top:10px; max-width:760px; }
-    .pill { display:inline-block; margin-top:14px; padding:6px 10px; border:1px solid #2a3962; border-radius:999px; color:#bdd4ff; font-size:12px; }
-    h2 { margin:28px 0 12px; font-size:22px; }
-    .grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(260px,1fr)); gap:14px; }
-    .card { background:var(--card); border:1px solid #223159; border-radius:14px; padding:16px; }
-    .name { font-size:18px; font-weight:700; }
-    .price { margin-top:6px; color:var(--ok); font-weight:700; }
-    .desc { margin:10px 0; color:var(--muted); min-height:72px; }
-    .meta { font-size:12px; color:#9fb0e6; margin-bottom:12px; }
-    .btns { display:flex; gap:8px; flex-wrap:wrap; }
-    .btn { appearance:none; border:0; border-radius:10px; padding:10px 12px; background:var(--acc); color:#041127; font-weight:700; text-decoration:none; }
-    .btn.secondary { background:transparent; border:1px solid #3d548f; color:#bdd4ff; }
-    .note { margin-top:20px; color:#a8b7e8; font-size:14px; }
-    footer { margin:34px 0 20px; color:#7d89b6; font-size:13px; }
-    footer a { color:#a9c4ff; }
+    :root {
+      --bg:#070b17;
+      --bg2:#0b1327;
+      --card:#0f1832;
+      --border:#243868;
+      --text:#eaf0ff;
+      --muted:#9db0dc;
+      --accent:#7cc4ff;
+      --accent2:#8d7dff;
+      --ok:#5de08b;
+      --warn:#ffd479;
+    }
+    * { box-sizing: border-box; }
+    html, body { margin:0; padding:0; font-family: Inter, ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, sans-serif; color:var(--text); background: radial-gradient(1200px 500px at 20% -20%, #1e2b56 0%, transparent 50%), linear-gradient(180deg,var(--bg),var(--bg2)); }
+    a { color: var(--accent); text-decoration: none; }
+    .wrap { max-width: 1120px; margin: 0 auto; padding: 22px; }
+
+    .topbar { display:flex; justify-content:space-between; align-items:center; gap:12px; padding:8px 0; }
+    .brand { font-weight:800; letter-spacing:.2px; }
+    .tag { color:var(--muted); font-size:13px; }
+
+    .hero { margin-top: 18px; padding: 30px; border:1px solid var(--border); border-radius: 20px; background: linear-gradient(135deg, rgba(124,196,255,.13), rgba(141,125,255,.12)); position:relative; overflow:hidden; }
+    .hero:after { content:""; position:absolute; width:320px; height:320px; border-radius:50%; right:-80px; top:-120px; background: radial-gradient(circle, rgba(124,196,255,.2), transparent 60%); }
+    .hero h1 { margin:0; font-size: clamp(30px, 6vw, 52px); line-height:1.05; }
+    .hero p { margin: 12px 0 0; max-width:760px; color:#d4deff; }
+    .hero .cta-row { display:flex; flex-wrap:wrap; gap:10px; margin-top:16px; }
+
+    .btn { display:inline-block; border-radius: 12px; padding: 11px 14px; font-weight:700; border:1px solid transparent; }
+    .btn.primary { background: linear-gradient(90deg,var(--accent),#97d1ff); color:#051224; }
+    .btn.secondary { border-color:#4a5d8f; color:#bfd2ff; }
+
+    .kpis { margin-top: 14px; display:grid; grid-template-columns: repeat(auto-fit,minmax(170px,1fr)); gap:10px; }
+    .kpi { padding:12px; border:1px solid #334e86; border-radius:12px; background:rgba(8,15,31,.35); }
+    .kpi .n { font-weight:800; color:#dcf2ff; }
+    .kpi .l { color:var(--muted); font-size:13px; }
+
+    h2 { margin: 28px 0 12px; font-size: 24px; }
+    .grid { display:grid; grid-template-columns: repeat(auto-fit,minmax(280px,1fr)); gap:14px; }
+    .card { border:1px solid var(--border); border-radius:16px; padding:16px; background: linear-gradient(180deg, #111b37, #0d1630); box-shadow: 0 14px 30px rgba(0,0,0,.25); }
+    .badge { display:inline-block; font-size:11px; letter-spacing:.3px; text-transform:uppercase; border:1px solid #4d649e; color:#c2d8ff; border-radius:999px; padding:5px 8px; }
+    .name { margin-top:10px; font-size:20px; font-weight:800; }
+    .price { margin-top:6px; color:var(--ok); font-size:18px; font-weight:800; }
+    .desc { margin:10px 0; color:#c4d2f7; min-height:72px; }
+    .meta { color:var(--muted); font-size:12px; margin-bottom:10px; }
+    .list { margin:10px 0 12px; padding-left:18px; color:#d9e5ff; }
+    .list li { margin:4px 0; }
+    .btns { display:flex; flex-wrap:wrap; gap:8px; }
+
+    .proof { margin-top:26px; display:grid; grid-template-columns:repeat(auto-fit,minmax(260px,1fr)); gap:12px; }
+    .proof .item { padding:14px; border-radius:12px; border:1px solid #324f89; background: rgba(10,17,35,.6); }
+
+    .faq { margin-top:10px; display:grid; gap:8px; }
+    .faq details { border:1px solid #2e4579; background:#0d1630; border-radius:10px; padding:10px 12px; }
+    .faq summary { cursor:pointer; font-weight:700; }
+    .faq p { color:#c8d7ff; }
+
+    .notice { margin-top:16px; color:var(--warn); font-size:13px; }
+    footer { margin:34px 0 20px; color:#7f93c6; font-size:13px; }
+
+    @media (max-width:700px) { .hero { padding:20px; } }
   </style>
 </head>
 <body>
   <main class="wrap">
+    <div class="topbar">
+      <div>
+        <div class="brand">LibbieAI</div>
+        <div class="tag">liljarv.dev • digital products for builders</div>
+      </div>
+      <a class="btn secondary" href="mailto:caden.kellogg01@gmail.com?subject=Custom%20AI%20tooling%20request">Custom request</a>
+    </div>
+
     <section class="hero">
-      <h1>LibbieAI Store</h1>
-      <p class="sub">Prompt packs and practical AI tooling designed for builders. Built to be ethical, useful, and immediately deployable.</p>
-      <span class="pill">liljarv.dev • digital delivery</span>
+      <h1>Prompt packs and AI tooling<br/>that actually ship.</h1>
+      <p>Built for founders, solo builders, and small teams who need practical outputs fast. Ethical workflows. Clear docs. Zero fluff.</p>
+      <div class="cta-row">
+        <a class="btn primary" href="#products">Browse products</a>
+        <a class="btn secondary" href="mailto:caden.kellogg01@gmail.com?subject=Question%20about%20LibbieAI%20products">Talk before buying</a>
+      </div>
+      <div class="kpis">
+        <div class="kpi"><div class="n">Digital delivery</div><div class="l">Receive assets by email/download</div></div>
+        <div class="kpi"><div class="n">Founder focused</div><div class="l">Built for speed-to-revenue</div></div>
+        <div class="kpi"><div class="n">Ethical by design</div><div class="l">No deceptive growth hacks</div></div>
+      </div>
+    </section>
+
+    <section id="products">
+      <h2>Products</h2>
+      <div id="products-grid" class="grid"></div>
+      <p class="notice">If checkout links are not yet wired for a product, email checkout is available and fulfilled within 24h.</p>
     </section>
 
     <section>
-      <h2>Products</h2>
-      <div id="products" class="grid"></div>
-      <p class="note" id="checkout-note">Checkout links are configured per product. If checkout is not yet live for a product, use <a href="mailto:caden.kellogg01@gmail.com">email checkout</a> and we’ll fulfill manually within 24h.</p>
+      <h2>Why buy from LibbieAI</h2>
+      <div class="proof">
+        <div class="item"><strong>Execution-first:</strong> assets are designed for immediate use, not theory.</div>
+        <div class="item"><strong>Low-friction setup:</strong> sensible defaults and clear runbooks included.</div>
+        <div class="item"><strong>Human support:</strong> direct response by email for setup blockers.</div>
+      </div>
+    </section>
+
+    <section>
+      <h2>FAQ</h2>
+      <div class="faq">
+        <details>
+          <summary>How do I receive products?</summary>
+          <p>Digital products are delivered by download link and/or email instructions after purchase.</p>
+        </details>
+        <details>
+          <summary>Can I use these in client work?</summary>
+          <p>Yes for internal/client delivery use. Resale of raw assets as-is is not allowed.</p>
+        </details>
+        <details>
+          <summary>Do you offer custom implementations?</summary>
+          <p>Yes. Use the custom request button and include your stack and target outcome.</p>
+        </details>
+      </div>
     </section>
 
     <footer>
@@ -49,21 +134,33 @@
   </main>
 
   <script>
+    function escapeHtml(s){
+      return String(s || '').replace(/[&<>"]/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+    }
+
     async function loadProducts(){
-      const root = document.getElementById('products');
+      const root = document.getElementById('products-grid');
       try {
         const res = await fetch('/products.json', { cache: 'no-store' });
         const products = await res.json();
+
         root.innerHTML = products.map(p => {
           const buy = p.checkout_url
-            ? `<a class="btn" href="${p.checkout_url}" target="_blank" rel="noopener">Buy now</a>`
-            : `<a class="btn" href="mailto:caden.kellogg01@gmail.com?subject=${encodeURIComponent('Order: '+p.name)}">Email checkout</a>`;
+            ? `<a class="btn primary" href="${escapeHtml(p.checkout_url)}" target="_blank" rel="noopener">Buy now</a>`
+            : `<a class="btn primary" href="mailto:caden.kellogg01@gmail.com?subject=${encodeURIComponent('Order: '+p.name)}">Email checkout</a>`;
+
+          const highlights = Array.isArray(p.highlights) && p.highlights.length
+            ? `<ul class="list">${p.highlights.map(h => `<li>${escapeHtml(h)}</li>`).join('')}</ul>`
+            : '';
+
           return `
             <article class="card">
-              <div class="name">${p.name}</div>
+              <span class="badge">${escapeHtml(p.badge || 'Digital Product')}</span>
+              <div class="name">${escapeHtml(p.name)}</div>
               <div class="price">$${Number(p.price).toFixed(2)}</div>
-              <div class="desc">${p.description || ''}</div>
-              <div class="meta">SKU: ${p.sku || ''} · Delivery: ${p.delivery || 'Digital download'}</div>
+              <div class="desc">${escapeHtml(p.description)}</div>
+              <div class="meta">SKU: ${escapeHtml(p.sku || '')} · Delivery: ${escapeHtml(p.delivery || 'Digital download')}</div>
+              ${highlights}
               <div class="btns">
                 ${buy}
                 <a class="btn secondary" href="mailto:caden.kellogg01@gmail.com?subject=${encodeURIComponent('Question: '+p.name)}">Ask a question</a>
@@ -75,6 +172,7 @@
         root.innerHTML = '<article class="card">Products are being updated. Please check back shortly.</article>';
       }
     }
+
     loadProducts();
   </script>
 </body>
